@@ -27,8 +27,18 @@ const connectDB = async () => {
 connectDB();
 
 // CORS Configuration
+const envOrigins = [
+    process.env.FRONTEND_URL,
+    process.env.FRONTEND_URLS
+]
+    .filter(Boolean)
+    .flatMap(origin => origin.split(','))
+    .map(origin => origin.trim().replace(/\/$/, ''))
+    .filter(Boolean);
+
 const allowedOrigins = [
-    process.env.FRONTEND_URL || 'http://localhost:5173',
+    ...envOrigins,
+    'http://localhost:5173',
     'http://localhost:5174',
     'http://localhost:5175',
     'http://localhost:3000'
@@ -40,13 +50,23 @@ app.use(cors({
         // Allow requests with no origin (like mobile apps or Postman)
         if (!origin) return callback(null, true);
 
+        const normalizedOrigin = origin.replace(/\/$/, '');
+
         // Check if origin is in allowed list
-        if (allowedOrigins.includes(origin)) {
+        if (allowedOrigins.includes(normalizedOrigin)) {
             return callback(null, true);
         }
 
         // Also allow any localhost during development
-        if (origin.includes('localhost') || origin.includes('127.0.0.1')) {
+        if (normalizedOrigin.includes('localhost') || normalizedOrigin.includes('127.0.0.1')) {
+            return callback(null, true);
+        }
+
+        // Optional: allow Vercel preview deployments for this project.
+        if (
+            process.env.ALLOW_VERCEL_PREVIEWS === 'true' &&
+            /^https:\/\/food-del-[a-z0-9-]+\.vercel\.app$/i.test(normalizedOrigin)
+        ) {
             return callback(null, true);
         }
 
