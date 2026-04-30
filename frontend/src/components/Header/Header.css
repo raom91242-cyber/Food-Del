@@ -1,0 +1,158 @@
+.header {
+    height: 34vw;
+    margin: 30px 0;
+    background: url('/header_img.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.header-contents {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: max(1.5vw, 15px);
+    max-width: 50%;
+    bottom: 10%;
+    left: 6vw;
+    animation: fadeIn 3s;
+}
+
+.header-contents h2 {
+    font-weight: 700;
+    color: white;
+    font-size: max(4.5vw, 28px);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.header-contents p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: max(1vw, 14px);
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.header-contents button {
+    border: none;
+    color: #262626;
+    font-weight: 600;
+    padding: max(0.8vw, 10px) max(2vw, 25px);
+    background-color: white;
+    font-size: max(1vw, 14px);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-contents button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .header {
+        height: 40vw;
+        margin: 25px 0;
+    }
+
+    .header-contents {
+        max-width: 55%;
+        left: 5vw;
+        bottom: 8%;
+    }
+
+    .header-contents h2 {
+        font-size: max(4vw, 26px);
+    }
+
+    .header-contents p {
+        font-size: max(0.9vw, 13px);
+    }
+}
+
+/* Mobile - Medium phones */
+@media (max-width: 768px) {
+    .header {
+        height: 50vw;
+        margin: 20px 0;
+    }
+
+    .header-contents {
+        max-width: 70%;
+        left: 4vw;
+        bottom: 6%;
+        gap: max(1.2vw, 12px);
+    }
+
+    .header-contents h2 {
+        font-size: max(3.5vw, 24px);
+    }
+
+    .header-contents p {
+        font-size: max(0.85vw, 12px);
+    }
+
+    .header-contents button {
+        padding: max(0.7vw, 9px) max(1.8vw, 20px);
+        font-size: max(0.9vw, 13px);
+    }
+}
+
+/* Mobile - Small phones */
+@media (max-width: 480px) {
+    .header {
+        height: 55vw;
+        margin: 15px 0;
+        border-radius: 8px;
+    }
+
+    .header-contents {
+        max-width: 85%;
+        left: 3vw;
+        bottom: 5%;
+        gap: 10px;
+    }
+
+    .header-contents h2 {
+        font-size: 20px;
+    }
+
+    .header-contents p {
+        font-size: 11px;
+        display: none;
+    }
+
+    .header-contents button {
+        padding: 8px 18px;
+        font-size: 12px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+    .header {
+        height: 60vw;
+        border-radius: 6px;
+    }
+
+    .header-contents {
+        max-width: 90%;
+        left: 2vw;
+        gap: 8px;
+    }
+
+    .header-contents h2 {
+        font-size: 18px;
+    }
+
+    .header-contents button {
+        padding: 7px 15px;
+        font-size: 11px;
+    }
+}

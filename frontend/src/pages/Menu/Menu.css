@@ -1,0 +1,370 @@
+.menu-page {
+    width: 100%;
+    padding: 40px 0;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.menu-container {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1200px;
+}
+
+.menu-title {
+    text-align: center;
+    font-size: 42px;
+    color: #2f2f2f;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.menu-subtitle {
+    text-align: center;
+    color: #757575;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Search Bar */
+.menu-search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-search-bar img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    opacity: 0.6;
+}
+
+.menu-search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #2f2f2f;
+}
+
+.menu-search-bar input::placeholder {
+    color: #999;
+}
+
+/* Category Filter */
+.menu-categories {
+    margin-bottom: 40px;
+}
+
+.menu-categories h3 {
+    font-size: 20px;
+    color: #2f2f2f;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.category-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.category-btn {
+    padding: 10px 20px;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #2f2f2f;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.category-btn:hover {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+}
+
+.category-btn.active {
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+    color: white;
+}
+
+/* Food Items Grid */
+.menu-items-section {
+    margin-top: 40px;
+}
+
+.items-count {
+    font-size: 18px;
+    color: #2f2f2f;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.food-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.menu-food-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-food-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.item-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    background: #f5f5f5;
+}
+
+.item-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-food-item:hover .item-overlay {
+    opacity: 1;
+}
+
+.item-category-badge {
+    background: #ff6b6b;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.item-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.item-name {
+    font-size: 18px;
+    color: #2f2f2f;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+}
+
+.item-description {
+    font-size: 13px;
+    color: #999;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+.item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.item-price {
+    font-size: 20px;
+    color: #ff6b6b;
+    font-weight: 700;
+}
+
+.item-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.add-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+    font-size: 13px;
+}
+
+.add-btn img {
+    width: 16px;
+    height: 16px;
+}
+
+.add-btn:hover {
+    background: #f35a5a;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+.qty-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s ease;
+    border-radius: 4px;
+}
+
+.qty-btn:hover {
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.qty-btn img {
+    width: 16px;
+    height: 16px;
+}
+
+.qty-display {
+    min-width: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: #2f2f2f;
+}
+
+/* No Items Found */
+.no-items-found {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    margin: 40px 0;
+}
+
+.no-items-found img {
+    width: 80px;
+    height: 80px;
+    opacity: 0.5;
+    margin-bottom: 20px;
+}
+
+.no-items-found h3 {
+    font-size: 24px;
+    color: #2f2f2f;
+    margin-bottom: 8px;
+}
+
+.no-items-found p {
+    color: #999;
+    font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-title {
+        font-size: 32px;
+    }
+
+    .food-items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .item-image-container {
+        height: 150px;
+    }
+
+    .category-buttons {
+        gap: 8px;
+    }
+
+    .category-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        padding: 0 12px;
+    }
+
+    .menu-title {
+        font-size: 24px;
+    }
+
+    .menu-subtitle {
+        font-size: 14px;
+    }
+
+    .food-items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px;
+    }
+
+    .item-content {
+        padding: 12px;
+    }
+
+    .item-name {
+        font-size: 15px;
+    }
+
+    .item-description {
+        font-size: 12px;
+    }
+
+    .item-price {
+        font-size: 16px;
+    }
+
+    .add-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}

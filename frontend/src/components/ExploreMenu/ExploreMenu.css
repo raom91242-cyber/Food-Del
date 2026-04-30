@@ -1,0 +1,228 @@
+.explore-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 0;
+}
+
+.explore-menu h1 {
+    color: #262626;
+    font-weight: 600;
+    font-size: max(2vw, 24px);
+}
+
+.explore-menu-text {
+    max-width: 60%;
+    color: #808080;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.explore-menu-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    margin: 20px 0;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.explore-menu-list::-webkit-scrollbar {
+    height: 6px;
+}
+
+.explore-menu-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.explore-menu-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.explore-menu-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.explore-menu-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.explore-menu-list-item img {
+    width: 7.5vw;
+    min-width: 80px;
+    max-width: 120px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    filter: brightness(0.95);
+}
+
+.explore-menu-list-item img:hover,
+.explore-menu-list-item img.active {
+    filter: brightness(1.1);
+    transform: scale(1.08);
+    border: 3px solid #667eea;
+}
+
+.explore-menu-list-item p {
+    margin-top: 5px;
+    color: #747474;
+    font-size: max(1.2vw, 14px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.explore-menu-list-item:hover p {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.explore-menu hr {
+    margin: 10px 0;
+    height: 2px;
+    background: linear-gradient(to right, #e2e2e2, #f0f0f0);
+    border: none;
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .explore-menu {
+        padding: 25px 0;
+        gap: 18px;
+    }
+
+    .explore-menu h1 {
+        font-size: max(1.8vw, 22px);
+    }
+
+    .explore-menu-text {
+        max-width: 70%;
+        font-size: 13px;
+    }
+
+    .explore-menu-list {
+        gap: 25px;
+        margin: 18px 0;
+    }
+
+    .explore-menu-list-item img {
+        width: 8vw;
+        min-width: 70px;
+        max-width: 100px;
+    }
+
+    .explore-menu-list-item p {
+        font-size: max(1.1vw, 13px);
+    }
+}
+
+/* Mobile - Medium phones */
+@media (max-width: 768px) {
+    .explore-menu {
+        padding: 20px 0;
+        gap: 15px;
+    }
+
+    .explore-menu h1 {
+        font-size: 20px;
+    }
+
+    .explore-menu-text {
+        max-width: 100%;
+        font-size: 12px;
+        color: #999;
+    }
+
+    .explore-menu-list {
+        gap: 20px;
+        margin: 15px 0;
+    }
+
+    .explore-menu-list-item img {
+        width: 60px;
+        min-width: 60px;
+        max-width: 80px;
+    }
+
+    .explore-menu-list-item p {
+        font-size: 12px;
+    }
+
+    .explore-menu hr {
+        margin: 8px 0;
+    }
+}
+
+/* Mobile - Small phones */
+@media (max-width: 480px) {
+    .explore-menu {
+        padding: 15px 0;
+        gap: 12px;
+    }
+
+    .explore-menu h1 {
+        font-size: 18px;
+    }
+
+    .explore-menu-text {
+        max-width: 100%;
+        font-size: 11px;
+        display: none;
+    }
+
+    .explore-menu-list {
+        gap: 15px;
+        margin: 12px 0;
+        padding: 8px 0;
+    }
+
+    .explore-menu-list-item {
+        gap: 6px;
+    }
+
+    .explore-menu-list-item img {
+        width: 50px;
+        min-width: 50px;
+        max-width: 70px;
+    }
+
+    .explore-menu-list-item p {
+        font-size: 11px;
+    }
+
+    .explore-menu hr {
+        margin: 8px 0;
+        height: 1px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+    .explore-menu h1 {
+        font-size: 16px;
+    }
+
+    .explore-menu-list {
+        gap: 12px;
+    }
+
+    .explore-menu-list-item img {
+        width: 45px;
+        min-width: 45px;
+    }
+
+    .explore-menu-list-item p {
+        font-size: 10px;
+    }
+}

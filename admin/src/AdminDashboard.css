@@ -1,0 +1,31 @@
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: transparent;
+}
+
+.admin-content {
+    flex: 1;
+    width: 100%;
+}
+
+.admin-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 18px;
+    color: #ccc;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .admin-dashboard {
+        min-height: 100vh;
+    }
+
+    .admin-content {
+        padding: 10px 0;
+    }
+}

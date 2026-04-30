@@ -1,0 +1,73 @@
+.user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.user-card {
+    padding: 25px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease;
+    animation: slideUp 0.5s ease backwards;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+}
+
+.user-info h3 {
+    margin: 0 0 5px 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.user-email {
+    margin: 0 0 10px 0;
+    color: #aaa;
+    font-size: 13px;
+}
+
+.user-meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.user-role {
+    background: rgba(255, 65, 108, 0.2);
+    color: #ff416c;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.user-date {
+    font-size: 11px;
+    color: #888;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

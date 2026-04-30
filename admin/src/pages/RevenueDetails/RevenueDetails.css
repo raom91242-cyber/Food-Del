@@ -1,0 +1,45 @@
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.back-btn {
+    background: transparent;
+    color: #ff416c;
+    border: 1px solid #ff416c;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all 0.3s;
+}
+
+.back-btn:hover {
+    background: #ff416c;
+    color: white;
+}
+
+.chart-wrapper {
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+
+.chart-wrapper h3 {
+    margin-bottom: 25px;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.mt-4 {
+    margin-top: 30px;
+}
+
+.revenue-details-container h3 {
+    padding: 20px 20px 10px 20px;
+    color: #fff;
+}

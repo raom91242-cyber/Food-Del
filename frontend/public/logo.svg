@@ -1,0 +1,20 @@
+<svg width="120" height="120" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Plate -->
+  <circle cx="32" cy="32" r="28" stroke="#FF6B35" stroke-width="3" fill="#FFF5F0"></circle>
+  
+  <!-- Burger Bun Top -->
+  <path d="M16 30C16 22 48 22 48 30H16Z" fill="#FFB347"></path>
+  
+  <!-- Lettuce -->
+  <path d="M16 30C20 34 44 34 48 30" stroke="#4CAF50" stroke-width="2"></path>
+  
+  <!-- Patty -->
+  <rect x="18" y="30" width="28" height="6" fill="#6B3E26"></rect>
+  
+  <!-- Bun Bottom -->
+  <rect x="16" y="36" width="32" height="6" rx="2" fill="#FFB347"></rect>
+  
+  <!-- Delivery Speed Lines -->
+  <line x1="8" y1="20" x2="18" y2="20" stroke="#FF6B35" stroke-width="2"></line>
+  <line x1="6" y1="26" x2="18" y2="26" stroke="#FF6B35" stroke-width="2"></line>
+</svg>

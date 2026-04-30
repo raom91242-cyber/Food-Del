@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+.dashboard-stats-container {
+    padding: 30px;
+    font-family: 'Outfit', sans-serif;
+    color: #333;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-header {
+    margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+}
+
+.dashboard-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.stat-card.glass-morphism {
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.clickable-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clickable-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 65, 108, 0.3);
+    border-color: rgba(255, 65, 108, 0.5);
+}
+
+.glass-morphism {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.stat-card {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.12);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.stat-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.revenue-icon { background: linear-gradient(135deg, #11998e, #38ef7d); }
+.orders-icon { background: linear-gradient(135deg, #FC466B, #3F5EFB); }
+.foods-icon { background: linear-gradient(135deg, #FDC830, #F37335); }
+.users-icon { background: linear-gradient(135deg, #8E2DE2, #4A00E0); }
+
+.stat-details h3 {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.dashboard-charts {
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.chart-placeholder h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #444;
+}
+
+.visual-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    height: 200px;
+    padding-top: 20px;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.bar {
+    flex: 1;
+    background: linear-gradient(to top, #ff4b2b, #ff416c);
+    border-radius: 8px 8px 0 0;
+    transition: height 1s ease-in-out;
+    opacity: 0.8;
+}
+
+.bar:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.stats-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 75, 43, 0.2);
+    border-top-color: #ff4b2b;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
