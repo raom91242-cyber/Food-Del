@@ -1,0 +1,14 @@
+{
+    "experimentalServices": {
+        "admin": {
+            "entrypoint": "admin",
+            "routePrefix": "/admin",
+            "framework": "vite"
+        },
+        "frontend": {
+            "entrypoint": "frontend",
+            "routePrefix": "/",
+            "framework": "vite"
+        }
+    }
+}
