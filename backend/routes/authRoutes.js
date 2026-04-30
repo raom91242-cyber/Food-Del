@@ -8,6 +8,10 @@ const router = express.Router();
 
 // Generate JWT Token
 const generateToken = (userId) => {
+    if (!process.env.JWT_SECRET) {
+        throw new Error('JWT_SECRET is not configured');
+    }
+
     return jwt.sign({ userId }, process.env.JWT_SECRET, {
         expiresIn: '30d'
     });
@@ -23,6 +27,13 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({
                 success: false,
                 message: 'Please provide name, email, and password'
+            });
+        }
+
+        if (!process.env.JWT_SECRET) {
+            return res.status(500).json({
+                success: false,
+                message: 'Server authentication is not configured'
             });
         }
 
