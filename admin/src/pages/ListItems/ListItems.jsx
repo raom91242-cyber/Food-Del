@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { API_BASE_URL } from '../../services/api'
 import '../Pages.css'
 
 const ListItems = () => {
@@ -14,7 +15,7 @@ const ListItems = () => {
 
     const fetchFoods = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/food')
+            const response = await fetch(`${API_BASE_URL}/food`)
             const data = await response.json()
             if (data.success) {
                 setFoods(data.data)
@@ -31,7 +32,7 @@ const ListItems = () => {
         if (!confirm('Are you sure you want to delete this item?')) return
 
         try {
-            const response = await fetch(`http://localhost:5000/api/food/${id}`, {
+            const response = await fetch(`${API_BASE_URL}/food/${id}`, {
                 method: 'DELETE'
             })
             const data = await response.json()
@@ -51,7 +52,7 @@ const ListItems = () => {
 
     const handleSave = async (id) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/food/${id}`, {
+            const response = await fetch(`${API_BASE_URL}/food/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(editData)

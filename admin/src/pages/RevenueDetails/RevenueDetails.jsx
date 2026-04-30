@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { API_BASE_URL } from '../../services/api';
 import './RevenueDetails.css';
 
 const RevenueDetails = ({ setCurrentPage }) => {
@@ -11,7 +12,7 @@ const RevenueDetails = ({ setCurrentPage }) => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/orders');
+                const response = await axios.get(`${API_BASE_URL}/orders`);
                 if (response.data.success) {
                     const fetchedOrders = response.data.data;
                     setOrders(fetchedOrders);

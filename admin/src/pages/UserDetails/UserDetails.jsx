@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../services/api';
 import './UserDetails.css';
 
 const UserDetails = ({ setCurrentPage }) => {
@@ -9,7 +10,7 @@ const UserDetails = ({ setCurrentPage }) => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/admin/users');
+                const response = await axios.get(`${API_BASE_URL}/admin/users`);
                 if (response.data.success) {
                     setUsers(response.data.data);
                 }

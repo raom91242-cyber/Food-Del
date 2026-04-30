@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext'
+import { API_BASE_URL } from '../../services/api'
 import './Profile.css'
 
 const Profile = () => {
@@ -54,7 +55,7 @@ const Profile = () => {
         try {
             const token = localStorage.getItem('token')
 
-            const response = await fetch(`http://localhost:5000/api/auth/profile/${user._id}`, {
+            const response = await fetch(`${API_BASE_URL}/auth/profile/${user._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

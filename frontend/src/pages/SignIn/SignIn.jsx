@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext'
+import { API_BASE_URL } from '../../services/api'
 import './SignIn.css'
 
 const SignIn = () => {
@@ -10,7 +11,7 @@ const SignIn = () => {
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const { setUser } = useContext(StoreContext)
-    const API_URL = 'http://localhost:5000/api/auth'
+    const API_URL = `${API_BASE_URL}/auth`
 
     const handleSubmit = async (e) => {
         e.preventDefault()

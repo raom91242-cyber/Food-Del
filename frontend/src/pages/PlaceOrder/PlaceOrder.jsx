@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './PlaceOrder.css'
 import { StoreContext } from '../../context/StoreContext'
+import { API_BASE_URL } from '../../services/api'
 
 const PlaceOrder = () => {
     const { user, getTotalAmount, clearCart, cartItems, food_list, appliedDiscount, applyDiscount, removeDiscount, getDiscountAmount } = useContext(StoreContext)
@@ -88,7 +89,7 @@ const PlaceOrder = () => {
             }
 
             // Send order to backend API
-            const response = await fetch('http://localhost:5000/api/orders', {
+            const response = await fetch(`${API_BASE_URL}/orders`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

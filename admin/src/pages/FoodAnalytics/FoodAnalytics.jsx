@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { API_BASE_URL } from '../../services/api';
 import './FoodAnalytics.css';
 
 const FoodAnalytics = ({ setCurrentPage }) => {
@@ -13,7 +14,7 @@ const FoodAnalytics = ({ setCurrentPage }) => {
     useEffect(() => {
         const fetchFoods = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/food');
+                const response = await axios.get(`${API_BASE_URL}/food`);
                 if (response.data.success) {
                     const fetchedFoods = response.data.data;
                     setFoods(fetchedFoods);
