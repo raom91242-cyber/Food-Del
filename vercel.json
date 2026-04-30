@@ -1,14 +1,28 @@
 {
-    "experimentalServices": {
-        "admin": {
-            "entrypoint": "admin",
-            "routePrefix": "/admin",
-            "framework": "vite"
+    "builds": [
+        {
+            "src": "admin/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
         },
-        "frontend": {
-            "entrypoint": "frontend",
-            "routePrefix": "/",
-            "framework": "vite"
+        {
+            "src": "frontend/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
         }
-    }
+    ],
+    "routes": [
+        {
+            "src": "/admin/(.*)",
+            "dest": "/admin/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/frontend/$1"
+        }
+    ]
 }
