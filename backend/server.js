@@ -86,10 +86,38 @@ app.use((req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 5000;
+const http = require('http');
+const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 5000;
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+const server = http.createServer(app);
+
+const MAX_PORT_TRIES = 10;
+
+let tryPort = DEFAULT_PORT;
+let attempts = 0;
+
+server.on('error', (err) => {
+    if (err && err.code === 'EADDRINUSE') {
+        console.warn(`Port ${tryPort} in use. Attempting port ${tryPort + 1}...`);
+        attempts += 1;
+        if (attempts > MAX_PORT_TRIES) {
+            console.error(`Failed to bind server after ${attempts} attempts. Exiting.`);
+            process.exit(1);
+        }
+        tryPort += 1;
+        setTimeout(() => server.listen(tryPort), 200);
+        return;
+    }
+    console.error('Server error:', err);
+    process.exit(1);
 });
+
+server.on('listening', () => {
+    const addr = server.address();
+    const port = addr && addr.port ? addr.port : tryPort;
+    console.log(`Server running on http://localhost:${port}`);
+});
+
+server.listen(tryPort);
 
 module.exports = app;
