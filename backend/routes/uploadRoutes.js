@@ -2,37 +2,39 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const cloudinary = require('../config/cloudinary');
-const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
-// Configure multer storage with Cloudinary
-const storage = new CloudinaryStorage({
-    cloudinary: cloudinary,
-    params: {
-        folder: 'fooddel/products',
-        resource_type: 'auto',
-        allowed_formats: ['jpg', 'jpeg', 'png', 'gif', 'webp']
-    }
-});
+// Use memory storage and upload buffer to Cloudinary manually
+const storage = multer.memoryStorage();
 
 const upload = multer({
-    storage: storage,
+    storage,
     limits: { fileSize: 10 * 1024 * 1024 } // 10MB limit
 });
 
 // Upload image to Cloudinary
-router.post('/upload', upload.single('image'), (req, res) => {
+router.post('/upload', upload.single('image'), async (req, res) => {
     try {
-        if (!req.file) {
+        if (!req.file || !req.file.buffer) {
             return res.status(400).json({
                 success: false,
                 message: 'No file provided'
             });
         }
 
+        // Convert buffer to data URI and upload to Cloudinary
+        const mimeType = req.file.mimetype || 'application/octet-stream';
+        const base64 = req.file.buffer.toString('base64');
+        const dataUri = `data:${mimeType};base64,${base64}`;
+
+        const result = await cloudinary.uploader.upload(dataUri, {
+            folder: 'fooddel/products',
+            resource_type: 'auto'
+        });
+
         res.json({
             success: true,
-            imageUrl: req.file.secure_url,
-            publicId: req.file.public_id,
+            imageUrl: result.secure_url,
+            publicId: result.public_id,
             message: 'Image uploaded successfully'
         });
     } catch (error) {
