@@ -64,11 +64,8 @@ app.use(cors({
             return callback(null, true);
         }
 
-        // Optional: allow Vercel preview deployments for this project.
-        if (
-            process.env.ALLOW_VERCEL_PREVIEWS === 'true' &&
-            /^https:\/\/food-del-[a-z0-9-]+\.vercel\.app$/i.test(normalizedOrigin)
-        ) {
+        // Allow this project's Vercel production/preview deployments.
+        if (/^https:\/\/food-del-[a-z0-9-]+\.vercel\.app$/i.test(normalizedOrigin)) {
             return callback(null, true);
         }
 
