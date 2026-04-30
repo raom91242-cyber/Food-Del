@@ -38,6 +38,8 @@ const envOrigins = [
 
 const allowedOrigins = [
     ...envOrigins,
+    'https://food-del-zeta-cyan.vercel.app',
+    'https://food-del-zeta-ten.vercel.app',
     'http://localhost:5173',
     'http://localhost:5174',
     'http://localhost:5175',
